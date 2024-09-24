@@ -64,7 +64,7 @@ def affirm_consequent := (isSprinkling ⇒ isRaining) ⇒ isRaining ⇒ isSprink
 
 Replace _ with the expression to get the list of counterexamples to affirm_disjunct
 -/
-def cxs : List BoolInterp := sorry
+def cxs : List BoolInterp := findCounterexamples affirm_disjunct
 
 -- This "code" should display the resulting interpretations lists of 0/1 strings
 -- It'll work when you fill in an answer above.
@@ -90,6 +90,9 @@ You answers here:
 
 -/
 
+
+
+
 /- #3 [50 points].
 
 Do the same thing with each of the other two fallacies.
@@ -103,6 +106,14 @@ Do the same thing with each of the other two fallacies.
 Your answers here:
 
 -/
+
+def cxs_deny_antecedent : List BoolInterp := findCounterexamples deny_antecedent
+#eval! interpStringsFromInterps cxs_deny_antecedent 2
+#eval! is_unsat deny_antecedent
+
+
+def cxs_affirm_consequent : List BoolInterp := findCounterexamples affirm_consequent
+#eval! interpStringsFromInterps cxs_affirm_consequent 2
 
 /- #4 [unmarked].
 
